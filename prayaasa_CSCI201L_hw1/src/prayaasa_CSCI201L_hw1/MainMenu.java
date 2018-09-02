@@ -9,15 +9,14 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonSyntaxException;
 
 public class MainMenu
-{
-	
+{	
 	public static void main(String[] args)
 	{
 		Scanner scanObject = new Scanner(System.in);
 		String inputFilename;
 		Gson gsonObject = new Gson();
 		FileReader fr;
-		JsonObject jObject;
+		JsonObject jObject = new JsonObject();
 		boolean validFile = false;
 		while(!validFile)
 		{
@@ -36,6 +35,10 @@ public class MainMenu
 				System.out.println("That file is not a well-formed JSON file.");
 			}
 		}
+		//At this point, we have a valid file in our jObject.
+		Calendar calendarInstance = new Calendar(jObject);
+		
+		
 		scanObject.close();
 	}
 
